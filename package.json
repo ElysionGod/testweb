@@ -1,0 +1,19 @@
+{
+  "name": "olch-temp-mail",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create olch-temp-mail-db",
+    "db:init:local": "wrangler d1 execute olch-temp-mail-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute olch-temp-mail-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "postal-mime": "^2.4.3"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

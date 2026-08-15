@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "olch-temp-mail",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-15",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "olch-temp-mail-db",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ],
+  "vars": {
+    "MAIL_DOMAINS": "mail.example.com,temp.example.com",
+    "MAILBOX_TTL_HOURS": "24",
+    "MAX_EMAIL_BYTES": "10485760"
+  }
+}

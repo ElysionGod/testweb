@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <title>OLCH Temp Mail</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">O</span>
+      <span>OLCH<span class="brand-muted">MAIL</span></span>
+    </a>
+    <div class="privacy-pill"><span class="dot"></span> Private inbox</div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">DISPOSABLE EMAIL · YOUR DOMAIN</div>
+      <h1>Your temporary inbox,<br><span>your name.</span></h1>
+      <p>Create a disposable address on a domain you control and receive verification emails in one clean inbox.</p>
+    </section>
+
+    <section id="createCard" class="card creator">
+      <div class="card-head">
+        <div>
+          <p class="mini-label">CREATE ADDRESS</p>
+          <h2>Choose your email</h2>
+        </div>
+        <button id="randomBtn" class="ghost-btn" type="button">Random name</button>
+      </div>
+
+      <form id="createForm" class="address-builder">
+        <div class="input-wrap grow">
+          <label for="nameInput">Name</label>
+          <input id="nameInput" autocomplete="off" maxlength="32" placeholder="oussama" required>
+        </div>
+        <div class="at-sign">@</div>
+        <div class="input-wrap grow">
+          <label for="domainSelect">Domain</label>
+          <select id="domainSelect" required></select>
+        </div>
+        <button class="primary-btn" type="submit">Create inbox</button>
+      </form>
+      <p id="createError" class="error" hidden></p>
+    </section>
+
+    <section id="inboxApp" class="inbox-layout" hidden>
+      <aside class="card inbox-side">
+        <p class="mini-label">ACTIVE ADDRESS</p>
+        <div class="address-box">
+          <div>
+            <div id="activeAddress" class="active-address"></div>
+            <div id="expiryText" class="muted small"></div>
+          </div>
+          <button id="copyBtn" class="icon-btn" title="Copy address">Copy</button>
+        </div>
+
+        <div class="side-actions">
+          <button id="refreshBtn" class="secondary-btn">Refresh inbox</button>
+          <button id="newInboxBtn" class="danger-ghost">Delete & create new</button>
+        </div>
+
+        <div class="status-row">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText">Listening for new mail…</span>
+        </div>
+      </aside>
+
+      <section class="card messages-card">
+        <div class="messages-head">
+          <div>
+            <p class="mini-label">INBOX</p>
+            <h2>Messages <span id="messageCount" class="count">0</span></h2>
+          </div>
+          <div class="auto-refresh">Auto-refresh · 4s</div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="mail-icon">✉</div>
+          <h3>Waiting for your first email</h3>
+          <p>Use the address on the left. New verification messages will appear automatically.</p>
+        </div>
+
+        <div id="messageList" class="message-list"></div>
+      </section>
+    </section>
+
+    <section id="reader" class="card reader" hidden>
+      <div class="reader-top">
+        <button id="closeReader" class="ghost-btn">← Back to inbox</button>
+        <div id="readerDate" class="muted small"></div>
+      </div>
+
+      <div class="reader-meta">
+        <div>
+          <p class="mini-label">FROM</p>
+          <div id="readerSender" class="reader-sender"></div>
+        </div>
+        <h2 id="readerSubject"></h2>
+      </div>
+
+      <div id="codePanel" class="code-panel" hidden>
+        <div>
+          <p class="mini-label">VERIFICATION CODE</p>
+          <div id="primaryCode" class="primary-code"></div>
+        </div>
+        <button id="copyCodeBtn" class="primary-btn small-btn">Copy code</button>
+      </div>
+
+      <div class="reader-tabs">
+        <button class="tab active" data-view="text">Safe text</button>
+        <button class="tab" data-view="html">Email design</button>
+      </div>
+
+      <pre id="textView" class="email-text"></pre>
+      <iframe id="htmlView" class="email-frame" sandbox="" referrerpolicy="no-referrer" hidden></iframe>
+    </section>
+  </main>
+
+  <footer>
+    Built for inboxes on domains you own. Some services may refuse disposable-email domains.
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
