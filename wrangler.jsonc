@@ -16,7 +16,7 @@
     }
   ],
   "vars": {
-    "MAIL_DOMAINS": "mail.example.com,temp.example.com",
+    "MAIL_DOMAINS": "gienig.com",
     "MAILBOX_TTL_HOURS": "24",
     "MAX_EMAIL_BYTES": "10485760"
   }
